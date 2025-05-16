@@ -11,6 +11,7 @@ class AddTodoScreen extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final titleTextController = useTextEditingController();
+    final descriptionTextController = useTextEditingController();
 
     return Scaffold(
       appBar: AppBar(title: const Text('Create New Task')),
@@ -20,7 +21,10 @@ class AddTodoScreen extends HookWidget {
             child: ListView(
               padding: const EdgeInsets.all(16),
               children: [
-                AddTodoInputs(titleTextController: titleTextController),
+                AddTodoInputs(
+                  titleTextController: titleTextController,
+                  descriptionTextController: descriptionTextController,
+                ),
                 const SizedBox(height: 16),
                 const AddTodoCategories(),
                 const SizedBox(height: 16),
