@@ -15,6 +15,7 @@ class AddTodoScreen extends HookWidget {
     final descriptionTextController = useTextEditingController();
     final selectedCategory = useState(TodoCategoryType.learn);
     final selectedDate = useState(DateTime.now());
+    final selectedTime = useState(TimeOfDay.now());
 
     return Scaffold(
       appBar: AppBar(title: const Text('Create New Task')),
@@ -31,7 +32,10 @@ class AddTodoScreen extends HookWidget {
                 const SizedBox(height: 16),
                 AddTodoCategories(selectedCategory: selectedCategory),
                 const SizedBox(height: 16),
-                AddTodoSchedule(selectedDate: selectedDate),
+                AddTodoSchedule(
+                  selectedDate: selectedDate,
+                  selectedTime: selectedTime,
+                ),
               ],
             ),
           ),
