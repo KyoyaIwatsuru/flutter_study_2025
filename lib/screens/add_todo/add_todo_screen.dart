@@ -4,6 +4,7 @@ import 'package:flutter_study_2025/screens/add_todo/components/add_todo_bottom_b
 import 'package:flutter_study_2025/screens/add_todo/components/add_todo_categories.dart';
 import 'package:flutter_study_2025/screens/add_todo/components/add_todo_inputs.dart';
 import 'package:flutter_study_2025/screens/add_todo/components/add_todo_schedule.dart';
+import 'package:flutter_study_2025/types/todo_category_type.dart';
 
 class AddTodoScreen extends HookWidget {
   const AddTodoScreen({super.key});
@@ -12,9 +13,12 @@ class AddTodoScreen extends HookWidget {
   Widget build(BuildContext context) {
     final titleTextController = useTextEditingController();
     final descriptionTextController = useTextEditingController();
+    final selectedCategory = useState(TodoCategoryType.learn);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Create New Task')),
+      appBar: AppBar(
+        title: const Text('Create New Task'),
+      ),
       body: Column(
         children: [
           Expanded(
@@ -26,7 +30,7 @@ class AddTodoScreen extends HookWidget {
                   descriptionTextController: descriptionTextController,
                 ),
                 const SizedBox(height: 16),
-                const AddTodoCategories(),
+                AddTodoCategories(selectedCategory: selectedCategory),
                 const SizedBox(height: 16),
                 const AddTodoSchedule(),
               ],

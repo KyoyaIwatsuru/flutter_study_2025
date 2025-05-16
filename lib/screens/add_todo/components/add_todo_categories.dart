@@ -1,37 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_study_2025/components/category_chip.dart';
+import 'package:flutter_study_2025/types/todo_category_type.dart';
 import 'package:flutter_study_2025/utils/styles.dart';
 
 class AddTodoCategories extends StatelessWidget {
-  const AddTodoCategories({super.key});
+  const AddTodoCategories({super.key, required this.selectedCategory});
+
+  final ValueNotifier<TodoCategoryType> selectedCategory;
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-            'Category',
-            style: AppStyle.title,
-          ),
-          SizedBox(height: 8),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
+        const Text(
+          'Category',
+          style: AppStyle.title,
+        ),
+        const SizedBox(height: 8),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            for (final category in TodoCategoryType.values)
               CategoryChip(
-                label: 'LRN',
-                iconData: Icons.edit_document,
+                onTap: () => selectedCategory.value = category,
+                category: category,
+                selectedCategory: selectedCategory.value,
               ),
-              CategoryChip(
-                label: 'WRK',
-                iconData: Icons.work,
-              ),
-              CategoryChip(
-                label: 'GEN',
-                iconData: Icons.home,
-              ),
-            ],
-          ),
+          ],
+        ),
       ],
     );
   }
