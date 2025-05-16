@@ -14,7 +14,7 @@ class TodoTile extends StatelessWidget {
       subtitle: const Text('18:00'),
       trailing: Checkbox(
         value: false,
-        onChanged: (value) {}
+        onChanged: (value) {},
       ),
     );
   }

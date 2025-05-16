@@ -33,8 +33,8 @@ class AddTodoCategories extends StatelessWidget {
                 iconData: Icons.home,
               ),
             ],
-          )
-      ]
+          ),
+      ],
     );
   }
 }

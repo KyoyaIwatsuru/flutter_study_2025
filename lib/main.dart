@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_study_2025/screens/add_todo/add_todo_screen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {

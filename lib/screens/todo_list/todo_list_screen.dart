@@ -7,13 +7,13 @@ class TodoListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Todo App'),),
+      appBar: AppBar(title: const Text('Todo App'),),
       body: ListView(
         children: const [
           TodoTile(),
           TodoTile(),
           TodoTile(),
-        ]
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
