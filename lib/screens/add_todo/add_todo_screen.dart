@@ -21,7 +21,9 @@ class AddTodoScreen extends HookWidget {
     final selectedTime = useState(TimeOfDay.now());
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Create New Task')),
+      appBar: AppBar(
+        title: const Text('Create New Task'),
+      ),
       body: Column(
         children: [
           Expanded(
@@ -52,6 +54,7 @@ class AddTodoScreen extends HookWidget {
                 'category': selectedCategory.value.value,
                 'date': selectedDate.value,
                 'time': selectedTime.value.format(context),
+                'isDone': false,
               });
               context.pop();
             },
