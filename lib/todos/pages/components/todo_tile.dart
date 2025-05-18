@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_study_2025/main.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_study_2025/todos/app/todo_manager.dart';
+import 'package:flutter_study_2025/todos/app/todos_state.dart';
 import 'package:flutter_study_2025/todos/model/entities/todo.dart';
 
-class TodoTile extends StatelessWidget {
+class TodoTile extends ConsumerWidget {
   const TodoTile({
     required this.todo,
     super.key,
@@ -11,11 +13,12 @@ class TodoTile extends StatelessWidget {
   final Todo todo;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return ListTile(
       onTap: () {
         final newTodo = todo.copyWith(isDone: !todo.isDone);
-        box.put(todo.todoId, newTodo.toJson());
+        ref.read(todoManagerProvider).update(newTodo);
+        ref.invalidate(todosStateProvider);
       },
       leading: CircleAvatar(
         radius: 4,
