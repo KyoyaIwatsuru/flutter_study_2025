@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_study_2025/main.dart';
+import 'package:flutter_study_2025/todos/model/types/todo_category_type.dart';
 import 'package:flutter_study_2025/todos/pages/add_todo/components/add_todo_bottom_buttons.dart';
 import 'package:flutter_study_2025/todos/pages/add_todo/components/add_todo_categories.dart';
 import 'package:flutter_study_2025/todos/pages/add_todo/components/add_todo_inputs.dart';
 import 'package:flutter_study_2025/todos/pages/add_todo/components/add_todo_schedule.dart';
-import 'package:flutter_study_2025/todos/model/types/todo_category_type.dart';
 import 'package:go_router/go_router.dart';
+import 'package:intl/intl.dart';
 import 'package:uuid/uuid.dart';
 
 class AddTodoScreen extends HookWidget {
@@ -14,6 +15,7 @@ class AddTodoScreen extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dateFormatter = DateFormat('yyyy/MM/dd');
     final titleTextController = useTextEditingController();
     final descriptionTextController = useTextEditingController();
     final selectedCategory = useState(TodoCategoryType.learn);
@@ -21,9 +23,7 @@ class AddTodoScreen extends HookWidget {
     final selectedTime = useState(TimeOfDay.now());
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Create New Task'),
-      ),
+      appBar: AppBar(title: const Text('Create New Task')),
       body: Column(
         children: [
           Expanded(
@@ -52,7 +52,7 @@ class AddTodoScreen extends HookWidget {
                 'title': titleTextController.text,
                 'description': descriptionTextController.text,
                 'category': selectedCategory.value.value,
-                'date': selectedDate.value,
+                'date': dateFormatter.format(selectedDate.value),
                 'time': selectedTime.value.format(context),
                 'isDone': false,
               });

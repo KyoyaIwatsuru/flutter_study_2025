@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Todo {
 
- String get todoId; String get title; String get description;@todoCategoryTypeStringConverterConverter TodoCategoryType get category; DateTime get date; String get time; bool get isDone;
+ String get todoId; String get title; String get description;@todoCategoryTypeStringConverterConverter TodoCategoryType get category; String get date; String get time; bool get isDone;
 /// Create a copy of Todo
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -49,7 +49,7 @@ abstract mixin class $TodoCopyWith<$Res>  {
   factory $TodoCopyWith(Todo value, $Res Function(Todo) _then) = _$TodoCopyWithImpl;
 @useResult
 $Res call({
- String todoId, String title, String description,@todoCategoryTypeStringConverterConverter TodoCategoryType category, DateTime date, String time, bool isDone
+ String todoId, String title, String description,@todoCategoryTypeStringConverterConverter TodoCategoryType category, String date, String time, bool isDone
 });
 
 
@@ -73,7 +73,7 @@ as String,title: null == title ? _self.title : title // ignore: cast_nullable_to
 as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String,category: null == category ? _self.category : category // ignore: cast_nullable_to_non_nullable
 as TodoCategoryType,date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
-as DateTime,time: null == time ? _self.time : time // ignore: cast_nullable_to_non_nullable
+as String,time: null == time ? _self.time : time // ignore: cast_nullable_to_non_nullable
 as String,isDone: null == isDone ? _self.isDone : isDone // ignore: cast_nullable_to_non_nullable
 as bool,
   ));
@@ -93,7 +93,7 @@ class _Todo implements Todo {
 @override final  String title;
 @override final  String description;
 @override@todoCategoryTypeStringConverterConverter final  TodoCategoryType category;
-@override final  DateTime date;
+@override final  String date;
 @override final  String time;
 @override final  bool isDone;
 
@@ -130,7 +130,7 @@ abstract mixin class _$TodoCopyWith<$Res> implements $TodoCopyWith<$Res> {
   factory _$TodoCopyWith(_Todo value, $Res Function(_Todo) _then) = __$TodoCopyWithImpl;
 @override @useResult
 $Res call({
- String todoId, String title, String description,@todoCategoryTypeStringConverterConverter TodoCategoryType category, DateTime date, String time, bool isDone
+ String todoId, String title, String description,@todoCategoryTypeStringConverterConverter TodoCategoryType category, String date, String time, bool isDone
 });
 
 
@@ -154,7 +154,7 @@ as String,title: null == title ? _self.title : title // ignore: cast_nullable_to
 as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String,category: null == category ? _self.category : category // ignore: cast_nullable_to_non_nullable
 as TodoCategoryType,date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
-as DateTime,time: null == time ? _self.time : time // ignore: cast_nullable_to_non_nullable
+as String,time: null == time ? _self.time : time // ignore: cast_nullable_to_non_nullable
 as String,isDone: null == isDone ? _self.isDone : isDone // ignore: cast_nullable_to_non_nullable
 as bool,
   ));

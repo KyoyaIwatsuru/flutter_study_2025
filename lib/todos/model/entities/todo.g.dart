@@ -13,7 +13,7 @@ _Todo _$TodoFromJson(Map<String, dynamic> json) => _Todo(
   category: todoCategoryTypeStringConverterConverter.fromJson(
     json['category'] as String,
   ),
-  date: DateTime.parse(json['date'] as String),
+  date: json['date'] as String,
   time: json['time'] as String,
   isDone: json['isDone'] as bool,
 );
@@ -25,7 +25,7 @@ Map<String, dynamic> _$TodoToJson(_Todo instance) => <String, dynamic>{
   'category': todoCategoryTypeStringConverterConverter.toJson(
     instance.category,
   ),
-  'date': instance.date.toIso8601String(),
+  'date': instance.date,
   'time': instance.time,
   'isDone': instance.isDone,
 };
